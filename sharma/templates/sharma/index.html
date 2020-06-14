@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<title>Portfolio</title>
+	<!-- CSS only -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+<!-- JS, Popper.js, and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+	<div class="container">
+		<header id="main-header">
+			<div class="row no-gutters">
+				<div class="col-lg-4 col md-5 ">
+                    {% for i in p %}
+                    <img id="face" src={{i.ii.url}} />
+                    {% endfor %}
+				</div>
+				<div  class="col-lg-8 col-md-7">
+					<div id="cl" class="row no-gutters align-items-center justify-content-center bg-dark text-white ">
+						<h2>Nagadeep sharma</h2>
+						<div class="">
+							<a href="https://www.instagram.com/nagadeep.sharma"><i class="fa fa-instagram px-4"></i></a>
+							<a href="https://github.com/nagadeepsharma"><i class="fa fa-github px-4"></i></a>
+							<a href="https://www.linkedin.com/in/nagadeep-sharma-968a8616a"><i class="fa fa-linkedin px-4"></i></a>
+						</div>
+					</div>
+					<div id="post" class="row no-gutters justify-content-center  text-white text-center align-items-center">
+						<h3>Webdev</h3>
+					</div>
+					<div id="port" class="row no-gutters align-items-strech text-center text-white">
+						<div class="port-item p-4  bg-primary" data-toggle="collapse" data-target="#home">
+							<i class="fa fa-home d-block"></i>Home
+						</div>
+						<div class="port-item p-4 bg-success" data-toggle="collapse" data-target="#work">
+							<i class="fa fa-folder-open d-block" ></i>Work
+						</div>
+						<div class="port-item p-4 bg-warning" data-toggle="collapse" data-target="#projects">
+							<i class="fa fa-graduation-cap d-block"></i>Projects
+						</div>
+						<div class="port-item p-4 bg-danger" data-toggle="collapse" data-target="#contact">
+							<i class="fa fa-envelope d-block"></i>Contact
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+	<div id="home" class="collapse show">
+		<div class="card card-body bg-primary text-white">
+			<h2>Welcome to Sharma's sols</h2>
+		</div>
+		<div class="card card-body py-5">
+        	<h3>My Skills</h3>
+        	<hr>
+        	<h4>HTML</h4>
+        	<div class="progress mb-3">
+          		<div class="progress-bar bg-success" style="width:90%"></div>
+        	</div>
+        	<h4>CSS-Bootstrap</h4>
+        	<div class="progress mb-3">
+          		<div class="progress-bar bg-success" style="width:80%"></div>
+        	</div>
+        	<h4>JavaScript-React</h4>
+        	<div class="progress mb-3">
+          		<div class="progress-bar bg-success" style="width:60%"></div>
+        	</div>
+        	<h4>Python-Django</h4>
+        	<div class="progress mb-3">
+          		<div class="progress-bar bg-success" style="width:70%"></div>
+        	</div>
+    	</div>
+    </div>
+    <div id="work" class="collapse">
+      <div class="card card-body bg-success text-white py-4">
+        <h2>Student</h2>
+        <hr />
+        <p>Vardhaman college of engineering,Hyd</p>
+
+        
+      </div>
+
+  	</div>
+  	<div id="projects" class="collapse">
+      <div class="card card-body bg-warning text-white py-4">
+        <h2>My projects</h2>
+        </div>
+    <div class="row">
+        {% for project in data %}
+        <div class="col-lg-4 col-md-6 py-4">
+            
+            <div class="card-header text-center">
+                <h3>{{ project.title }}</h3>
+            </div>
+            <div class="card-body ">
+                {% if project.url %}
+                <a href="{{ project.url }}">
+                <img src="{{ project.img.url }}" class="img-fluid mb-2">
+                </a>
+                {% else %}
+      
+                <img src="{{ project.img.url }}" class="img-fluid mb-2">
+                {% endif %}
+
+            </div>
+            <div class="card-footer text-center">
+                <p>{{ project.desc}}</p>
+            </div>
+        </div>
+        
+        {% endfor %}
+    </div>
+</div>
+    <div id="contact" class="collapse">
+      <div class="card card-body bg-danger text-white py-5">
+        <h2>Contact</h2>
+        
+      </div>
+
+      <div class="card card-body py-5">
+        <h3>Get in touch</h3>
+        <p>All Suggestions and queries will be accepted.</p>
+        <form>
+          <div class="form-group">
+            <div class="input-group input-group-lg">
+              
+              <input type="text" class="form-control bg-dark text-white" placeholder="Name">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-group input-group-lg">
+              
+              <input type="email" class="form-control bg-dark text-white" placeholder="Email">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-group input-group-lg">
+             
+              <textarea rows="5" class="form-control bg-dark text-white" placeholder="Message"></textarea>
+            </div>
+          </div>
+          <input type="submit" value="Submit" class="btn btn-danger btn-block btn-lg">
+        </form>
+      </div>
+    </div>
+
+		
+	
+	<footer id="main-footer" class="p-5 bg-dark text-white">
+      <div class="row">
+        <div class="col-md-6">
+          <a href="#" class="btn btn-outline-light"><i class="fa fa-cloud"></i> Download Resume</a>
+        </div>
+      </div>
+    </footer>
+</div>
+</body>
+</html>

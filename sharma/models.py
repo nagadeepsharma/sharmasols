@@ -6,4 +6,4 @@ class Content(models.Model):
     img=models.ImageField(upload_to="sharma/images")
     url = models.URLField(blank=True)
 class Pp(models.Model):
-    ii=models.ImageField(upload_to='portfolio/images/')
+    ii=models.ImageField(upload_to='sharma/images')

@@ -5,4 +5,4 @@ from .models import Pp,Content
 def index(request):
     p=Pp.objects.all()
     data=Content.objects.all()
-    return render(request,'sharma/index.html',{'p':p,'data':data})
+    return render(request,'index.html',{'p':p,'data':data})
